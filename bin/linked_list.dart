@@ -1,43 +1,54 @@
-import 'package:dart_box/linked_list/index.dart';
+import 'package:dart_box/linked_list/example/index.dart';
+
+import 'linked_list.dart';
 
 void main() {
-  push();
-  append();
-  insertAfter();
-  pop();
-  removeLast();
-  removeAfter();
-  listIterable();
+  // push();
+  // append();
+  // nodeAt(2);
+  // insertAfter();
+  // pop();
+  // removeLast();
+  // removeAfter();
 }
 
 void push() {
   final list = LinkedList<int>();
   list.push(4);
-  list.push(5);
-  list.push(6);
-  print(list);
+  list.push(3);
+  list.push(2);
+  list.push(1);
+  print('push $list');
 }
 
 void append() {
-  print('-' * 10);
   final list = LinkedList<int>();
-  list.append(7);
-  list.append(8);
-  list.append(9);
-  print(list);
+  list.append(4);
+  list.append(5);
+  list.append(6);
+  print('append $list');
+}
+
+void nodeAt(int index) {
+  final list = LinkedList<int>();
+  list.push(4);
+  list.push(3);
+  list.push(2);
+  list.push(1);
+  var node = list.nodeAt(index);
+  print('nodeAt $node');
 }
 
 void insertAfter() {
-  print('-' * 10);
   final list = LinkedList<int>();
-  list.push(10);
-  list.push(11);
-  list.push(12);
-  print('Before $list');
-
-  var midNode = list.nodeAt(1)!;
-  list.insertAfter(midNode, 42);
-  print('After $list');
+  list.push(1);
+  list.push(4);
+  list.push(3);
+  print('insertAfter: Before $list');
+  var node = list.nodeAt(1)!;
+  var insertNode = list.insertAfter(node, 42);
+  print('insertAfter: After $list');
+  print('insertAfter: After $insertNode');
 }
 
 void pop() {
@@ -46,10 +57,10 @@ void pop() {
   list.push(13);
   list.push(14);
   list.push(15);
-  print('Before $list');
+  print('pop: Before $list');
   final poppedValue = list.pop();
-  print('After $list');
-  print('Popped $poppedValue');
+  print('pop: After $list');
+  print('pop: Popped $poppedValue');
 }
 
 void removeLast() {
@@ -59,7 +70,7 @@ void removeLast() {
   list.push(17);
   list.push(18);
   print('Before $list');
-  final removeLastValue = list.pop();
+  final removeLastValue = list.removeLast();
   print('After $list');
   print('Removed $removeLastValue');
 }
@@ -75,20 +86,4 @@ void removeAfter() {
   final removeLastAfterValue = list.removeAfter(firstNode!);
   print('After $list');
   print('Removed $removeLastAfterValue');
-}
-
-void listIterable() {
-  final numbers = [22, 23, 24];
-  for (final number in numbers) {
-    print('number $number');
-  }
-
-  final list = LinkedList<int>();
-  list.push(25);
-  list.push(26);
-  list.push(27);
-
-  for (final element in list) {
-    print('element $element');
-  }
 }
