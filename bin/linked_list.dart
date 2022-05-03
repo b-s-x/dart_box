@@ -1,6 +1,4 @@
-import 'package:dart_box/linked_list/example/index.dart';
-
-import 'linked_list.dart';
+import 'package:dart_box/linked_list/index.dart';
 
 void main() {
   // push();
