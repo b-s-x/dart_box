@@ -1,6 +1,5 @@
 import 'avl_node.dart';
 import 'dart:math' as math;
-import 'package:logger/logger.dart';
 
 class AvlTree<E extends Comparable<dynamic>> {
   AvlNode<E>? root;
